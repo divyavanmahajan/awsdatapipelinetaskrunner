@@ -1,6 +1,6 @@
 # Java taskrunner for AWS Datapipeline
-
-This Docker image is based off [openjdk](https://hub.docker.com/_/openjdk/). It runs a [AWS Datapipeline Task Runner](http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-how-remote-taskrunner-client.html). Each activity in a data pipeline executes on a task runner.
+This Docker image runs a [AWS Datapipeline Task Runner](http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-how-remote-taskrunner-client.html). Each activity in a data pipeline executes on a task runner.
+It is based on the [openjdk](https://hub.docker.com/_/openjdk/) Docker image. 
 
 ## Demo
 ```sh
@@ -12,8 +12,9 @@ docker run --detach --name taskrunner \
     --env SECRETKEY="Iz6BU1/w65+6JY4SIWm+xDOkK7XXXXXXXXXXXXXX" 
     vanmahajan/awsdatapipelinetaskrunner
 ```
-
-Create a datapipeline and set the "workergroup" of an activity to "myworkergroup". Execute the datapipeline to see the taskrunner execute your activity.
+* Create a datapipeline and set the "workergroup" of an activity to "myworkergroup"
+* Execute the datapipeline to see the taskrunner execute your activity.
+* Check logs in S3 or in the Docker volume to see output.
 
 ## What is a Datapipeline Task Runner
 Task Runner is a task agent application that polls AWS Data Pipeline for scheduled tasks and executes them on Amazon EC2 instances, Amazon EMR clusters, or other computational resources, reporting status as it does so. Depending on your application, you may choose to:
